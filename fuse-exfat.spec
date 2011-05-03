@@ -1,7 +1,7 @@
 Name: fuse-exfat
 Summary: Free exFAT file system implementation
 Version: 0.9.2
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPLv3+
 Group: System/Kernel and hardware
 Source0: http://exfat.googlecode.com/files/fuse-exfat-%{version}.tar.gz
