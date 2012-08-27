@@ -1,12 +1,11 @@
 Name: fuse-exfat
 Summary: Free exFAT file system implementation
-Version: 0.9.2
-Release: %mkrel 2
+Version: 0.9.8
+Release: %mkrel 1
 License: GPLv3+
 Group: System/Kernel and hardware
 Source0: http://exfat.googlecode.com/files/fuse-exfat-%{version}.tar.gz
 URL: http://code.google.com/p/exfat/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: fuse-devel >= 2.6
 BuildRequires: scons
 Requires: fuse >= 2.6
@@ -24,15 +23,10 @@ for SDXC memory cards.
 %scons
 
 %install
-rm -rf %buildroot
-DESTDIR=%buildroot/sbin scons install
-mkdir -p %buildroot%_mandir/man8
+scons install DESTDIR=%buildroot/sbin
+mkdir -p %{buildroot}%_mandir/man8
 install -m644 fuse/mount.exfat-fuse.8 %buildroot%_mandir/man8/
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root,-)
 /sbin/*
 %{_mandir}/man8/*
