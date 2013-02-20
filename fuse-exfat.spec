@@ -1,6 +1,6 @@
 Name: fuse-exfat
 Summary: Free exFAT file system implementation
-Version: 1.0.0
+Version: 1.0.1
 Release: 1
 License: GPLv3+
 Group: System/Kernel and hardware
