@@ -1,7 +1,7 @@
 Summary:	Free exFAT file system implementation
 Name:		fuse-exfat
 Version:	1.0.1
-Release:	2
+Release:	3
 License:	GPLv3+
 Group:		System/Kernel and hardware
 Url:		http://code.google.com/p/exfat/
@@ -21,6 +21,13 @@ for SDXC memory cards.
 %setup -q
 
 %build
+# (tpg) fix for https://issues.openmandriva.org/show_bug.cgi?id=834
+export CC="%{__cc} -fuse-ld=bfd"
+export CXX="%{__cxx} -fuse-ld=bfd"
+mkdir -p BFD
+ln -sf /usr/bin/ld.bfd BFD/ld
+export PATH=$PWD/BFD:$PATH
+
 %scons
 
 %install
