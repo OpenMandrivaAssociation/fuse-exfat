@@ -21,6 +21,13 @@ for SDXC memory cards.
 %setup -q
 
 %build
+# (tpg) fix for https://issues.openmandriva.org/show_bug.cgi?id=834
+export CC="%{__cc} -fuse-ld=bfd"
+export CXX="%{__cxx} -fuse-ld=bfd"
+mkdir -p BFD
+ln -sf /usr/bin/ld.bfd BFD/ld
+export PATH=$PWD/BFD:$PATH
+
 %scons
 
 %install
