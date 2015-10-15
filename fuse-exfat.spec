@@ -1,3 +1,5 @@
+%define _disable_lto 1
+
 Summary:	Free exFAT file system implementation
 Name:		fuse-exfat
 Version:	1.0.1
