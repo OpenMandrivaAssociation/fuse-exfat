@@ -1,5 +1,2 @@
-removed_sources:
-  fuse-exfat-0.9.8.tar.gz: 582d89a935ba7e587319e57807a0f9fc9e84fd7b
-  fuse-exfat-1.0.0.tar.gz: f68439c689aa3040609b32c410f3eba316a44b20
 sources:
-  fuse-exfat-1.0.1.tar.gz: e24d2322797c26fb3bff5952c23f52f3274e887f
+  fuse-exfat-1.2.3.tar.gz: a557cc1b6df9834322111b4a19f7fb9f3e2824bc
