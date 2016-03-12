@@ -30,4 +30,5 @@ mkdir -p %{buildroot}%{_mandir}/man8
 install -m644 fuse/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/
 
 %files
-%{_mandir}/man8/*
+%{_sbindir}/*
+%{_mandir}/man8/*.8.*
