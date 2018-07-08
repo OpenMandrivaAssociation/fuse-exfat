@@ -1,7 +1,7 @@
 Summary:	Free exFAT file system implementation
 Name:		fuse-exfat
-Version:	1.2.7
-Release:	2
+Version:	1.2.8
+Release:	1
 License:	GPLv3+
 Group:		System/Kernel and hardware
 Url:		https://github.com/relan/exfat
