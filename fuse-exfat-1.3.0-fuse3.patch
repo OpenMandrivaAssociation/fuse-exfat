@@ -1,0 +1,43 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -37,7 +37,7 @@
+   AC_DEFINE([USE_UBLIO], [1],
+     [Define if block devices are not supported.])
+ ], [:])
+-PKG_CHECK_MODULES([FUSE], [fuse])
++PKG_CHECK_MODULES([FUSE], [fuse3])
+ AC_CONFIG_HEADERS([libexfat/config.h])
+ AC_CONFIG_FILES([
+ 	libexfat/Makefile
+--- a/fuse/main.c.orig
++++ b/fuse/main.c
+@@ -21,7 +21,7 @@
+ */
+ 
+ #include <exfat.h>
+-#define FUSE_USE_VERSION 26
++#define FUSE_USE_VERSION 31
+ #include <fuse.h>
+ #include <errno.h>
+ #include <fcntl.h>
+@@ -116,8 +116,8 @@
+ 		return -ENOTDIR;
+ 	}
+ 
+-	filler(buffer, ".", NULL, 0);
+-	filler(buffer, "..", NULL, 0);
++	filler(buffer, ".", NULL, 0, 0);
++	filler(buffer, "..", NULL, 0, 0);
+ 
+ 	rc = exfat_opendir(&ef, parent, &it);
+ 	if (rc != 0)
+@@ -133,7 +133,7 @@
+ 				name, node->is_contiguous ? "contiguous" : "fragmented",
+ 				node->size, node->start_cluster);
+ 		exfat_stat(&ef, node, &stbuf);
+-		filler(buffer, name, &stbuf, 0);
++		filler(buffer, name, &stbuf, 0, 0);
+ 		exfat_put_node(&ef, node);
+ 	}
+ 	exfat_closedir(&ef, &it);
+
