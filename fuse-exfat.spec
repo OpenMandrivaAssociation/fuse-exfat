@@ -6,6 +6,8 @@ License:	GPLv3+
 Group:		System/Kernel and hardware
 Url:		https://github.com/relan/exfat
 Source0:	https://github.com/relan/exfat/releases/download/v%{version}/%{name}-%{version}.tar.gz
+#(crazy) it simple does not work with fuse3
+# see: https://issues.openmandriva.org/show_bug.cgi?id=2433
 #Patch0:		fuse-exfat-1.3.0-fuse3.patch
 #BuildRequires:	pkgconfig(fuse3)
 #Requires:	fuse >= 3.0
