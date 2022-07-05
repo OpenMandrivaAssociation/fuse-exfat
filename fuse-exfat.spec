@@ -1,7 +1,7 @@
 Summary:	Free exFAT file system implementation
 Name:		fuse-exfat
 Version:	1.3.0
-Release:	6
+Release:	7
 License:	GPLv3+
 Group:		System/Kernel and hardware
 Url:		https://github.com/relan/exfat
@@ -21,25 +21,20 @@ to replace FAT32 removing some of it's limitations. exFAT is a standard FS
 for SDXC memory cards.
 
 %files
-/sbin/*
-%{_sbindir}/*
+%{_bindir}/*
 %{_mandir}/man8/*.8.*
 
 #---------------------------------------------------------------------------
 
 %prep
 %autosetup -p1
+%configure
 
 %build
-%configure
 %make_build
 
 %install
 %make_install
-
-install -d %{buildroot}/sbin
-ln -sr %{buildroot}%{_sbindir}/mount.exfat %{buildroot}/sbin/mount.exfat
-ln -sr %{buildroot}%{_sbindir}/mount.exfat-fuse %{buildroot}/sbin/mount.exfat-fuse
 
 # (tpg) install man
 mkdir -p %{buildroot}%{_mandir}/man8
