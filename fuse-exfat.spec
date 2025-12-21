@@ -7,6 +7,11 @@ Group:		System/Kernel and hardware
 Url:		https://github.com/relan/exfat
 Source0:	https://github.com/relan/exfat/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(fuse3)
 Requires:	fuse >= 3.0
 #BuildRequires:	pkgconfig(fuse)
